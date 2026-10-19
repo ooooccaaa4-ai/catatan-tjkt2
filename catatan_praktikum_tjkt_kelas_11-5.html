@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Catatan Belajar Praktikum TJKT Kelas 11</title>
+<style>
+:root{--bg:#f4f7fb;--card:#fff;--text:#172033;--muted:#596579;--accent:#2457d6;--line:#dce3ee}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+header{background:linear-gradient(135deg,#173b8f,#3478e5);color:white;padding:32px 18px}
+.hero,main{max-width:900px;margin:auto}
+h1{font-size:clamp(1.7rem,5vw,2.5rem);line-height:1.2;margin:0 0 10px}
+header p{margin:0;color:#e7eeff}
+main{padding:18px 14px 50px}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 18px}
+button{border:0;border-radius:10px;padding:10px 14px;background:var(--accent);color:white;font-weight:650;font-size:.95rem;cursor:pointer}
+button.secondary{background:#e4ebfa;color:#173b8f}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;margin:14px 0;box-shadow:0 3px 12px #12244a0a}
+h2{margin:0 0 10px;font-size:1.35rem}
+h3{margin:16px 0 6px;font-size:1.05rem}
+p{margin:8px 0}
+ul,ol{padding-left:24px}
+code,pre{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
+code{background:#eef2fa;padding:2px 5px;border-radius:5px;overflow-wrap:anywhere}
+pre{background:#111827;color:#e5e7eb;padding:14px;border-radius:10px;overflow-x:auto;white-space:pre-wrap}
+table{border-collapse:collapse;width:100%;margin:10px 0}
+th,td{border:1px solid var(--line);padding:9px;text-align:left;vertical-align:top}
+th{background:#edf2fc}
+.checklist label{display:block;padding:8px 0;border-bottom:1px solid #edf0f5}
+.checklist input{margin-right:9px;transform:scale(1.15)}
+.note{background:#fff8e5;border-left:4px solid #e7a72b;padding:10px 13px;border-radius:7px}
+.small{font-size:.92rem;color:var(--muted)}
+footer{text-align:center;color:var(--muted);padding:20px}
+@media(max-width:560px){.card{padding:15px}header{padding:26px 16px}table{font-size:.92rem}}
+@media print{body{background:white}.toolbar{display:none}.card{box-shadow:none;break-inside:avoid}header{background:white;color:#172033;padding:10px 0}header p{color:#333}}
+</style>
+</head>
+<body>
+<header><div class="hero">
+<h1>Catatan Belajar Praktikum TJKT Kelas 11</h1>
+<p>Ringkasan materi, langkah praktik, perintah penting, dan latihan sebelum ujian.</p>
+</div></header>
+<main>
+<div class="toolbar">
+<button onclick="copyNotes()">Salin semua catatan</button>
+<button class="secondary" onclick="window.print()">Cetak / Simpan PDF</button>
+<button class="secondary" onclick="resetChecks()">Reset checklist</button>
+</div>
+<p id="status" class="small" aria-live="polite">Tip: centang materi yang sudah kamu kuasai. File ini bisa dibuka langsung di browser.</p>
+
+<section class="card checklist">
+<h2>1. Checklist materi</h2>
+<label><input type="checkbox">Dasar jaringan: LAN, WAN, switch, router, client-server</label>
+<label><input type="checkbox">IP Address, subnet mask, gateway, DNS</label>
+<label><input type="checkbox">Kabel UTP, urutan T568B, konektor RJ45, cable tester</label>
+<label><input type="checkbox">Konfigurasi router dan DHCP</label>
+<label><input type="checkbox">Debian/Linux dan terminal</label>
+<label><input type="checkbox">Layanan server: SSH, web, DNS, file server</label>
+<label><input type="checkbox">Troubleshooting jaringan</label>
+<label><input type="checkbox">Simulasi Cisco Packet Tracer</label>
+</section>
+
+<section class="card">
+<h2>2. Dasar jaringan komputer</h2>
+<ul>
+<li><b>LAN:</b> jaringan di area kecil, misalnya laboratorium sekolah.</li>
+<li><b>WAN:</b> jaringan dengan cakupan geografis luas.</li>
+<li><b>Switch:</b> menghubungkan perangkat dalam jaringan lokal.</li>
+<li><b>Router:</b> menghubungkan jaringan yang berbeda.</li>
+<li><b>Client-server:</b> client meminta layanan atau data dari server.</li>
+</ul>
+<h3>Latihan</h3>
+<p>Gambarkan komputer client terhubung ke switch, lalu switch terhubung ke server. Jika ada jaringan lain, router dapat menghubungkan kedua jaringan.</p>
+</section>
+
+<section class="card">
+<h2>3. IP Address dan pengujian koneksi</h2>
+<table><tr><th>Perangkat</th><th>Contoh konfigurasi</th></tr>
+<tr><td>Server</td><td><code>192.168.10.10</code></td></tr>
+<tr><td>Client</td><td><code>192.168.10.11</code></td></tr>
+<tr><td>Subnet mask</td><td><code>255.255.255.0</code></td></tr>
+<tr><td>Gateway contoh</td><td><code>192.168.10.1</code></td></tr></table>
+<h3>Windows</h3><ol><li>Buka Command Prompt (CMD).</li><li>Ketik <code>ipconfig</code>, lalu tekan Enter.</li><li>Periksa IPv4 Address, Subnet Mask, dan Default Gateway.</li><li>Uji koneksi ke server dengan perintah di bawah.</li></ol>
+<pre>ping 192.168.10.10</pre>
+<p><b>Pembahasan:</b> <code>Reply from...</code> berarti alamat tujuan memberi balasan. Jika gagal, periksa kabel, IP, subnet, firewall, dan kondisi perangkat. Ping gagal tidak selalu berarti seluruh jaringan terputus.</p>
+</section>
+
+<section class="card">
+<h2>4. Kabel UTP dan crimping</h2>
+<p><b>Urutan warna T568B dari pin 1 sampai 8:</b></p>
+<ol><li>Putih-oranye</li><li>Oranye</li><li>Putih-hijau</li><li>Biru</li><li>Putih-biru</li><li>Hijau</li><li>Putih-cokelat</li><li>Cokelat</li></ol>
+<h3>Langkah praktik</h3>
+<ol><li>Kupas kulit luar kabel secukupnya.</li><li>Pisahkan dan luruskan delapan kabel kecil.</li><li>Susun sesuai urutan T568B.</li><li>Masukkan kabel ke konektor RJ45 sampai ujungnya rata.</li><li>Jepit menggunakan tang crimping.</li><li>Uji dengan LAN cable tester.</li></ol>
+<p><b>Pembahasan:</b> Kabel straight umumnya memakai susunan yang sama di kedua ujung. Pastikan semua jalur terdeteksi pada tester. Gunakan alat sesuai arahan guru.</p>
+</section>
+
+<section class="card">
+<h2>5. Konfigurasi router</h2>
+<p>Materi yang perlu dipahami: alamat IP interface, DHCP, gateway, dan NAT dasar.</p>
+<ol><li>Hubungkan komputer ke router atau simulator.</li><li>Buka menu konfigurasi router.</li><li>Atur IP interface sesuai rancangan jaringan.</li><li>Aktifkan DHCP jika dibutuhkan.</li><li>Simpan konfigurasi.</li><li>Periksa IP client dan uji koneksi dengan <code>ping</code>.</li></ol>
+<p><b>Pembahasan:</b> DHCP membagikan konfigurasi IP otomatis. Gateway menjadi jalur menuju jaringan lain. Menu dan perintah berbeda sesuai jenis router.</p>
+</section>
+
+<section class="card">
+<h2>6. Debian / Linux: perintah penting</h2>
+<table><tr><th>Perintah</th><th>Fungsi</th></tr>
+<tr><td><code>whoami</code></td><td>Menampilkan user aktif.</td></tr>
+<tr><td><code>hostname</code></td><td>Melihat nama komputer.</td></tr>
+<tr><td><code>ip addr</code></td><td>Melihat alamat IP dan interface.</td></tr>
+<tr><td><code>ip route</code></td><td>Melihat tabel routing.</td></tr>
+<tr><td><code>ping ALAMAT_IP</code></td><td>Menguji koneksi.</td></tr>
+<tr><td><code>ls</code></td><td>Melihat isi folder.</td></tr>
+<tr><td><code>cd nama_folder</code></td><td>Berpindah folder.</td></tr>
+<tr><td><code>mkdir latihan</code></td><td>Membuat folder latihan.</td></tr>
+<tr><td><code>systemctl status ssh</code></td><td>Memeriksa status layanan SSH.</td></tr>
+</table>
+<h3>Latihan terminal</h3>
+<pre>whoami
+hostname
+ip addr
+ip route
+ping -c 4 192.168.10.11</pre>
+<p><b>Pembahasan:</b> Login menggunakan akun dari guru, buka terminal, lalu jalankan perintah satu per satu. Ganti alamat contoh dengan IP yang benar di jaringan praktik. Tidak semua perintah memerlukan hak administrator.</p>
+</section>
+
+<section class="card">
+<h2>7. Layanan server</h2>
+<h3>SSH server</h3><p>Untuk mengakses server dari jarak jauh dengan koneksi aman.</p>
+<pre>systemctl status ssh
+ssh namauser@192.168.10.10</pre>
+<p>Perintah SSH kedua digunakan dari client jika layanan dan akun sudah dikonfigurasi.</p>
+<h3>Web server</h3><p>Menampilkan website kepada client. Jika Apache terpasang, periksa:</p>
+<pre>systemctl status apache2</pre>
+<p>Jika server berjalan, coba buka alamat IP server dari browser client.</p>
+<h3>DNS server</h3><p>Menerjemahkan nama domain menjadi alamat IP. Jika tersedia, uji dengan:</p>
+<pre>nslookup namadomain</pre>
+<h3>File server</h3><p>Menyediakan folder atau file bersama melalui jaringan. Pelajari folder bersama, akun pengguna, dan hak akses; salah satu layanan yang sering digunakan adalah Samba.</p>
+<div class="note">Catatan keamanan: Debian 10 sudah tua. Lakukan latihan di mesin virtual atau komputer lab yang diizinkan guru, bukan membuka server lama langsung ke internet.</div>
+</section>
+
+<section class="card">
+<h2>8. Troubleshooting jaringan</h2>
+<ol><li>Periksa kabel LAN dan lampu indikator.</li><li>Periksa alamat IP dengan <code>ipconfig</code> (Windows) atau <code>ip addr</code> (Linux).</li><li>Pastikan IP dan subnet sesuai.</li><li>Ping alamat server.</li><li>Jika ping berhasil tetapi aplikasi gagal, periksa status layanan dan firewall.</li></ol>
+<p><b>Pembahasan:</b> Mulai dari pemeriksaan paling sederhana. Jangan langsung menginstal ulang sistem atau menghapus konfigurasi.</p>
+</section>
+
+<section class="card">
+<h2>9. Cisco Packet Tracer: jaringan sederhana</h2>
+<ol><li>Buka Cisco Packet Tracer.</li><li>Tambahkan dua PC dan satu switch.</li><li>Hubungkan PC ke switch menggunakan kabel yang sesuai.</li><li>Atur PC pertama: IP <code>192.168.10.10</code>, mask <code>255.255.255.0</code>.</li><li>Atur PC kedua: IP <code>192.168.10.11</code>, mask <code>255.255.255.0</code>.</li><li>Buka Command Prompt di PC pertama dan jalankan <code>ping 192.168.10.11</code>.</li></ol>
+<p><b>Pembahasan:</b> Kedua PC berada di subnet yang sama. Jika koneksi dan konfigurasi benar, ping seharusnya berhasil setelah perangkat siap.</p>
+</section>
+
+<section class="card">
+<h2>10. Latihan soal cepat</h2>
+<ol>
+<li><b>Apa fungsi IP Address?</b><br>Jawaban: alamat logis perangkat agar dapat berkomunikasi di jaringan IP.</li>
+<li><b>Apa perintah Linux untuk melihat alamat IP?</b><br>Jawaban: <code>ip addr</code>.</li>
+<li><b>Apa fungsi DNS?</b><br>Jawaban: menerjemahkan nama domain menjadi alamat IP.</li>
+<li><b>Apa fungsi switch?</b><br>Jawaban: menghubungkan perangkat dalam jaringan lokal.</li>
+<li><b>Apa yang diperiksa saat ping gagal?</b><br>Jawaban: kabel, konfigurasi IP dan subnet, firewall, serta kondisi perangkat tujuan.</li>
+<li><b>Apa fungsi DHCP?</b><br>Jawaban: membagikan konfigurasi IP secara otomatis kepada client.</li>
+<li><b>Apa fungsi SSH?</b><br>Jawaban: mengakses perangkat/server dari jarak jauh secara aman.</li>
+</ol>
+</section>
+
+<section class="card">
+<h2>11. Jadwal belajar 5 hari</h2>
+<ul>
+<li><b>Hari 1:</b> dasar jaringan, IP Address, dan ping.</li>
+<li><b>Hari 2:</b> kabel UTP, urutan T568B, dan cable tester.</li>
+<li><b>Hari 3:</b> Debian/Linux dan perintah terminal.</li>
+<li><b>Hari 4:</b> router dan layanan server.</li>
+<li><b>Hari 5:</b> simulasi Packet Tracer dan latihan menjelaskan langkah praktik.</li>
+</ul>
+<p><b>Tips ujian:</b> Jangan hanya menghafal. Praktikkan langkahnya dan latih diri untuk menjelaskan fungsi setiap konfigurasi.</p>
+</section>
+<footer>Catatan belajar TJKT • Bisa dibuka offline setelah file disimpan di perangkat.</footer>
+</main>
+<script>
+function copyNotes(){
+  const text = document.querySelector('main').innerText;
+  const status = document.getElementById('status');
+  if(navigator.clipboard && window.isSecureContext){
+    navigator.clipboard.writeText(text).then(()=>status.textContent='Catatan berhasil disalin. Tempelkan ke aplikasi Catatan.').catch(()=>fallbackCopy(text));
+  } else { fallbackCopy(text); }
+}
+function fallbackCopy(text){
+  const area=document.createElement('textarea');area.value=text;area.style.position='fixed';area.style.opacity='0';document.body.appendChild(area);area.select();
+  try{document.execCommand('copy');document.getElementById('status').textContent='Catatan disalin. Tempelkan ke aplikasi Catatan.';}
+  catch(e){document.getElementById('status').textContent='Penyalinan otomatis tidak tersedia. Pilih teks halaman lalu salin secara manual.';}
+  area.remove();
+}
+function resetChecks(){document.querySelectorAll('.checklist input').forEach(el=>el.checked=false);document.getElementById('status').textContent='Checklist direset.';}
+</script>
+</body>
+</html>
